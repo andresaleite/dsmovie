@@ -13,7 +13,7 @@
 	<artifactId>dsmovie</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dsmovie</name>
-	<description>Evento da devsuperior de Spring e React</description>
+	<description>Evento da devsuperior de Spring e React.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
