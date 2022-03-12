@@ -10,13 +10,6 @@ function Listing() {
 
    const [pageNumber, setPageNumber] = useState(0);
 
-   //Forma errada
-   //axios.get(`${BASE_URL}/movies?size=5&page=1`)
-   //   .then(response => {
-   //      const data = response.data as MoviePage;
-   //      setPageNumber(data.number);
-    //  })
-
    const [page, setPage] = useState<MoviePage>({
       content: [],
       last: true,
@@ -29,8 +22,11 @@ function Listing() {
       empty: true
   });
 
+  const handlePageChange = (newPageNumber : number) => {
+     setPageNumber(newPageNumber);
+  }
    useEffect(()=>{
-      axios.get(`${BASE_URL}/movies?size=5&page=${pageNumber}&sirt=id`)
+      axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sirt=id`)
       .then(response => {
          const data = response.data as MoviePage;
          setPage(data);
@@ -39,7 +35,7 @@ function Listing() {
 
    return (
    <> 
-      <Pagination />   
+      <Pagination page={page} onChange = {handlePageChange}/>   
          <div className="container">
             <div className="row">
                {page.content.map(movie => (
