@@ -46,7 +46,7 @@ public class ScoreService {
 		score = scoreRepository.saveAndFlush(score);
 		double sum = 0.0;
 		for(Score s: movie.getScores()) {
-			sum =+ s.getValue();
+			sum = sum + s.getValue();
 		}
 		
 		double media = sum / movie.getScores().size();
